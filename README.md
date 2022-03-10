@@ -98,16 +98,16 @@ The default chain configuration looks for RPC URLs in environment variables. To 
 
 The env vars you should configure for the default configuration are:
 
-- WEB3_ETHEREUM_MAINNET_URL
-- WEB3_ETHEREUM_GOERLI_URL
-- WEB3_ETHEREUM_KOVAN_URL
-- WEB3_ETHEREUM_RINKEBY_URL
-- WEB3_ETHEREUM_ROPSTEN_URL
-- WEB3_POLYGON_MAINNET_URL
-- WEB3_POLYGON_MUMBAI_URL
-- WEB3_BSC_MAINNET_URL
-- WEB3_BSC_CHAPEL_URL
-- WEB3_LOCAL_URL
+- `WEB3_ETHEREUM_MAINNET_URL`
+- `WEB3_ETHEREUM_GOERLI_URL`
+- `WEB3_ETHEREUM_KOVAN_URL`
+- `WEB3_ETHEREUM_RINKEBY_URL`
+- `WEB3_ETHEREUM_ROPSTEN_URL`
+- `WEB3_POLYGON_MAINNET_URL`
+- `WEB3_POLYGON_MUMBAI_URL`
+- `WEB3_BSC_MAINNET_URL`
+- `WEB3_BSC_CHAPEL_URL`
+- `WEB3_LOCAL_URL`
 
 The chains available will be a subset of these depending on whether the environment variable is configured or not. If you try to get a chain that isn't available, an error will be thrown.
 
