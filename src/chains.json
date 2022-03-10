@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ethereum-mainnet",
+    "chainId": 1,
+    "type": "mainnet",
+    "url": "env:WEB3_ETHEREUM_MAINNET_URL",
+    "currency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    }
+  },
+  {
+    "id": "ethereum-goerli",
+    "chainId": 5,
+    "type": "testnet",
+    "url": "env:WEB3_ETHEREUM_GOERLI_URL",
+    "currency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "mainnet": "mainnet"
+  },
+  {
+    "id": "ethereum-kovan",
+    "chainId": 42,
+    "type": "testnet",
+    "url": "env:WEB3_ETHEREUM_KOVAN_URL",
+    "currency": {
+      "name": "Kovan",
+      "symbol": "KOV",
+      "decimals": 18
+    },
+    "mainnet": "mainnet"
+  },
+  {
+    "id": "ethereum-rinkeby",
+    "chainId": 4,
+    "type": "testnet",
+    "url": "env:WEB3_ETHEREUM_RINKEBY_URL",
+    "currency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "mainnet": "mainnet",
+    "localnet": "ganache"
+  },
+  {
+    "id": "ethereum-ropsten",
+    "chainId": 3,
+    "type": "testnet",
+    "url": "env:WEB3_ETHEREUM_ROPSTEN_URL",
+    "currency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "mainnet": "mainnet"
+  },
+  {
+    "id": "polygon-mainnet",
+    "chainId": 137,
+    "type": "mainnet",
+    "url": "env:WEB3_POLYGON_MAINNET_URL",
+    "currency": {
+      "name": "Polygon",
+      "symbol": "MATIC",
+      "decimals": 18
+    }
+  },
+  {
+    "id": "polygon-mumbai",
+    "chainId": 80001,
+    "type": "test",
+    "url": "env:WEB3_POLYGON_MUMBAI_URL",
+    "currency": {
+      "name": "Polygon",
+      "symbol": "MATIC",
+      "decimals": 18
+    },
+    "mainnet": "polygon"
+  },
+  {
+    "id": "bsc-mainnet",
+    "chainId": 56,
+    "type": "mainnet",
+    "url": "env:WEB3_BSC_MAINNET_URL",
+    "currency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    }
+  },
+  {
+    "id": "bsc-chapel",
+    "chainId": 97,
+    "type": "mainnet",
+    "url": "env:WEB3_BSC_CHAPEL_URL",
+    "currency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "mainnet": "bsc"
+  },
+  {
+    "id": "local",
+    "chainId": 1337,
+    "type": "local",
+    "url": "env:WEB3_LOCAL_URL",
+    "currency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    }
+  }
+]

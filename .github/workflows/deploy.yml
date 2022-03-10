@@ -1,0 +1,43 @@
+on: [push, pull_request]
+name: deploy
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - id: cache-modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ matrix.node-version }}-${{ runner.OS }}-build-${{ hashFiles('package.json', 'yarn.lock') }}
+      - if: steps.cache-modules.outputs.cache-hit != 'true'
+        run: yarn
+      # - name: test
+      #   run: yarn test
+
+  publish:
+    name: publish
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && ( github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' )
+    steps:
+      - uses: actions/checkout@v2
+      - id: cache-modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ matrix.node-version }}--${{ runner.OS }}-build-${{ hashFiles('package.json', 'yarn.lock') }}
+      - if: steps.cache-modules.outputs.cache-hit != 'true'
+        run: yarn
+      - run: yarn build
+      - uses: mikeal/merge-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
