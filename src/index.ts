@@ -122,7 +122,7 @@ class Web3 extends NativeWeb3 {
     ws: {},
   };
 
-  constructor(chains?: ChainConfig[], maxBatchSize: number = 500) {
+  constructor(chains?: ChainConfig[] | null, maxBatchSize: number = 500) {
     super();
 
     this.#maxBatchSize = maxBatchSize;
