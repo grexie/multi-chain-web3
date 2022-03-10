@@ -73,7 +73,7 @@
   {
     "id": "polygon-mumbai",
     "chainId": 80001,
-    "type": "test",
+    "type": "testnet",
     "url": "env:WEB3_POLYGON_MUMBAI_URL",
     "currency": {
       "name": "Polygon",
@@ -96,7 +96,7 @@
   {
     "id": "bsc-chapel",
     "chainId": 97,
-    "type": "mainnet",
+    "type": "testnet",
     "url": "env:WEB3_BSC_CHAPEL_URL",
     "currency": {
       "name": "Ether",
@@ -108,7 +108,7 @@
   {
     "id": "local",
     "chainId": 1337,
-    "type": "local",
+    "type": "localnet",
     "url": "env:WEB3_LOCAL_URL",
     "currency": {
       "name": "Ether",
