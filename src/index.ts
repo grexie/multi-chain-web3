@@ -2,18 +2,18 @@ import defaultChains from './chains.json';
 import NativeWeb3 from 'web3';
 import { Method as Web3Method } from 'web3-core-method';
 
-enum ChainType {
+export enum ChainType {
   mainnet = 'mainnet',
   testnet = 'testnet',
   localnet = 'localnet',
 }
 
-enum ConnectionType {
+export enum ConnectionType {
   HTTP,
   WebSockets,
 }
 
-interface Currency {
+export interface Currency {
   name: string;
   symbol: string;
   decimals: number;
@@ -30,7 +30,7 @@ interface ChainBase<T extends ChainType = ChainType> {
   currency: Currency;
 }
 
-type Chain<T extends ChainType = ChainType> = ChainBase<T> &
+export type Chain<T extends ChainType = ChainType> = ChainBase<T> &
   (T extends ChainType.mainnet
     ? {
         testnets: Chain[];
@@ -42,7 +42,7 @@ type Chain<T extends ChainType = ChainType> = ChainBase<T> &
       }
     : {});
 
-type ChainConfig<T extends ChainType = ChainType> = ChainBase<T> & {
+export type ChainConfig<T extends ChainType = ChainType> = ChainBase<T> & {
   url: Chain['url'] | string;
 } & (T extends ChainType.testnet
     ? {
