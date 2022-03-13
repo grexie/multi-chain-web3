@@ -185,18 +185,32 @@ class Web3 extends NativeWeb3 {
               c.type == ChainType.testnet &&
               (c as ChainConfig<ChainType.testnet>).mainnet === chain.id
           )
-          .map(c => this.getChain(c.id));
+          .map(c => {
+            try {
+              return this.getChain(c.id);
+            } catch (err) {
+              return null;
+            }
+          })
+          .filter(x => !!x)
+          .map(x => x!);
         (chain as Chain<ChainType.mainnet>).localnets =
           chains
             .filter(c => c.type == ChainType.localnet)
-            ?.map(c => this.getChain(c.id)) ?? [];
+            ?.map(c => {
+              try {
+                return this.getChain(c.id);
+              } catch (err) {
+                return null;
+              }
+            })
+            .filter(x => !!x)
+            .map(x => x!) ?? [];
       } else if (chain.type === ChainType.testnet) {
         const mainnet = chains.find(c => c.id === chain.id);
-        if (!mainnet) {
-          throw new Error(`unable to resolve mainnet for chain ${chain.id}`);
+        if (mainnet) {
+          (chain as Chain<ChainType.testnet>).mainnet = this.getChain(mainnet);
         }
-
-        (chain as Chain<ChainType.testnet>).mainnet = this.getChain(mainnet);
       }
     }
   }
